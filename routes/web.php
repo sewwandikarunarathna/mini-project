@@ -48,7 +48,8 @@ Route::get('/changePassword', function () {
     Route::get('/channelDet', 'PatientController@channelingDetails')->name('patient.channelDet');
     Route::get('/myAppt', 'PatientController@myAppt')->name('patient.myAppt');
     Route::get('/myProfile', 'PatientController@myProfile')->name('patient.myProfile');
-    Route::get('/updateProfile', 'PatientController@updateProfile')->name('patient.updateProfile');
+    Route::get('/updateProfile/{id}', 'PatientController@updateProfile')->name('patient.updateProfile');
+    Route::post('/updateeachprofl', 'PatientController@updateeachprofl')->name('patient.updateeachprofl');
 
 // });
 
@@ -73,7 +74,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/addEmp', 'AdminController@addEmployees')->name('admin.addEmp');
     Route::get('/updateEmp', 'AdminController@updateEmployees')->name('admin.updateEmp');
     Route::get('/addDoctor', 'AdminController@addDoctor')->name('admin.addDoctor');
-    Route::get('/updateDoctor', 'AdminController@updateDoctor')->name('admin.updateDoctor');
+    Route::get('/updateDoctor/{id}', 'AdminController@updateDoctor')->name('admin.updateDoctor');
+    Route::post('/updateeachdoctor', 'AdminController@updateeachdoctor')->name('admin.updateeachdoctor');
     Route::get('/patientList', 'AdminController@patientList')->name('admin.patientList');
     Route::get('/addPatient', 'AdminController@addPatient')->name('admin.addPatient');
    

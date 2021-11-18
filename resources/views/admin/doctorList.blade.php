@@ -118,34 +118,19 @@
               <th>Action</th>
               
           </tr> 
-          
+          @foreach($doctors as $doctor)
           <tr>
-              <td>nsdfwjefh fwu</td>
-              <td>dentist</td>
-              <td>Kandy</td>
-              <td>qwertgh5738@gmail.com</td>
-              <td>465733896</td>
-              <td><a href="/viewSessions" class="btn btn-info">View Sessions</a>&nbsp;&nbsp;<a href="/admin/updateDoctor"  class="btn btn-success">Update</a></td>
+              <td>{{$doctor->firstname . " " . $doctor->lastname}}</td>
+              <td>{{$doctor->speciality}}</td>
+              <td>{{$doctor->working_hospital}}</td>
+              <td>{{$doctor->email}}</td>
+              <td>{{$doctor->phone_no}}</td>
+              <td><a href="/viewSessions" class="btn btn-info">View Sessions</a>&nbsp;&nbsp;
+              <a href="/admin/updateDoctor/{{$doctor->id}}"  class="btn btn-success">Update</a></td>
               
-          </tr>  
-          <tr>
-                <td>sdfhjww ri</td>
-                <td>dentist</td>
-                <td>Kandy</td>
-                <td>qwertgh5738@gmail.com</td>
-                <td>465733896</td>
-                <td><a href="/viewSessions" class="btn btn-info">View Sessions</a>&nbsp;&nbsp;<a href="/updateDoctor"  class="btn btn-success">Update</a></td>
-        </tr>
-        <tr>
-            <td>sjkukerv rsefv</td>
-              <td>dentist</td>
-              <td>Kandy</td>
-              <td>qwertgh5738@gmail.com</td>
-              <td>465733896</td>
-              <td><a href="/viewSessions" class="btn btn-info">View Sessions</a>&nbsp;&nbsp;<a href="/updateDoctor"  class="btn btn-success">Update</a></td>
-        </tr>
-
-        </table>
+          </tr> 
+          @endforeach 
+          </table>
       </div>
     </div>
   </div>

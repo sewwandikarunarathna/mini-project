@@ -40,17 +40,23 @@
             
             <div class="col-md-7">
             
-                <form method="POST" action="/updateData">
+                <form method="POST" action="/updateeachprofl">
                     @csrf
 
                     <h3>Update Your Details!</h3>
                    <hr>
 
+                   <div class="col-md-6">
+                            <input type="hidden" class="form-control" name="id" value="{{ $updateprofl->id }}">
+
+                           
+                        </div>
+
                     <div class="form-group row">
                         <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
 
                         <div class="col-md-6">
-                            <input id="firstname" type="text" class="form-control" name="firstname" value="{{ old('firstname') }}">
+                            <input id="firstname" type="text" class="form-control" name="newfirstname" value="{{ $updateprofl->firstname }}">
 
                            
                         </div>
@@ -60,7 +66,7 @@
                         <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
 
                         <div class="col-md-6">
-                            <input id="lastname" type="text" class="form-control" name="lastname" value="{{ old('lastname') }}">
+                            <input id="lastname" type="text" class="form-control" name="newlastname" value="{{ $updateprofl->lastname }}">
 
                            
                         </div>
@@ -70,7 +76,7 @@
                         <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                         <div class="col-md-6">
-                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                            <input id="email" type="email" class="form-control" name="newemail" value="{{$updateprofl->email }}">
 
                             
                         </div>
@@ -80,7 +86,7 @@
                         <label for="nic" class="col-md-4 col-form-label text-md-right">{{ __('NIC Number') }}</label>
 
                         <div class="col-md-6">
-                            <input id="nic" type="text" class="form-control" name="nic" value="{{ old('nic') }}">
+                            <input id="nic" type="text" class="form-control" name="newnic" value="{{ $updateprofl->nic }}">
 
                             
                         </div>
@@ -90,7 +96,7 @@
                         <label for="phone_no" class="col-md-4 col-form-label text-md-right">{{ __('phone Number') }}</label>
 
                         <div class="col-md-6">
-                            <input id="phone_no" type="text" class="form-control" name="phone_no" value="{{ old('phone_no') }}">
+                            <input id="phone_no" type="text" class="form-control" name="newphone_no" value="{{ $updateprofl->phone_no }}">
 
                             
                         </div>
@@ -100,7 +106,7 @@
                         <label for="birthday" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
 
                         <div class="col-md-6">
-                            <input id="birthday" type="date" class="form-control" name="birthday" value="{{ old('birthday') }}">
+                            <input id="birthday" type="date" class="form-control" name="newbirthday" value="{{ $updateprofl->birthday }}">
 
                            
                         </div>
@@ -110,16 +116,18 @@
                         <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
 
                         <div class="col-md-6">
-                            <select id="gender" class="form-control" name="gender" value="{{ old('gender') }}">
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
+                            <select id="gender" class="form-control" name="newgender" value="">
+                                <option value="male" @if ($updateprofl->gender == "male") {{ 'selected' }} @endif>Male</option>
+                                <option value="female" @if ($updateprofl->gender == "female") {{ 'selected' }} @endif>Female</option>
+                                <!-- <option value="male">Male</option>
+                                <option value="female">Female</option> -->
                             </select>    
                         </div>
                     </div>
 
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
-                           <input type="submit" class="btn btn-primary col-md-6" value="Update">
+                           <a href="/updateeachprofl"></a><input type="submit" class="btn btn-primary col-md-6" value="Update">
                            <a href="/myProfile"><input type="button" class="btn btn-warning col-md-5" value="Back to Profile"></a>
                         </div>
 

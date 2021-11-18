@@ -1,7 +1,7 @@
 @extends('layouts.app')
 <?php
     
-    $title = 'appointments';
+    $title = 'doctor profile';
    $page = "";
  ?>
 
@@ -105,39 +105,39 @@
     </nav>
     <br>
     
-    <h3>(name) <br> (doctor id) </h3>
+    <h3>{{ $docdetail->firstname . " " . $docdetail->lastname}} <br>ID: {{ $docdetail->id }} </h3>
     <div class="row justify-content-center">
         <div class="col-md-5 details">
           <table class="table table-striped">
             <tr class="d-flex">
              <td class="text-left col-5">First Name</td> 
              <td class="col-1">:</td>
-             <td class="col-6">dfg kl</td>
+             <td class="col-6">{{ $docdetail->firstname }}</td>
             </tr>
             <tr class="d-flex">
               <td class="text-left col-5">Last Name</td>
               <td class="col-1">:</td> 
-              <td class="col-6">dferty</td>
+              <td class="col-6">{{ $docdetail->lastname }}</td>
             </tr>
             <tr class="d-flex">
             <td class="text-left col-5">Speciality</td>  
             <td class="col-1">:</td>
-            <td class="col-6">Heart surgon</td> 
+            <td class="col-6">{{ $docdetail->speciality }}</td> 
             </tr>
             <tr class="d-flex">
                 <td class="text-left col-5">Working Hospital</td>  
                 <td class="col-1">:</td>
-                <td class="col-6">Kandy</td> 
+                <td class="col-6">{{ $docdetail->working_hospital }}</td> 
                 </tr>
             <tr class="d-flex">
              <td class="text-left col-5">Email</td> 
              <td class="col-1">:</td>
-             <td class="col-6">qwer4567@gmail.com</td>
+             <td class="col-6">{{ $docdetail->email }}</td>
             </tr>
             <tr class="d-flex">
               <td class="text-left col-5">Contact Number</td>
               <td class="col-1">:</td>
-              <td class="col-6">07024356</td>  
+              <td class="col-6">{{ $docdetail->phone_no }}</td>  
             </tr>
             
           </table>

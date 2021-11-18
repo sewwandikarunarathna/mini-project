@@ -137,15 +137,20 @@
             <div class="col-md-7">
 
                
-                        <form method="POST" action="">
+                        <form method="POST" action="/admin/updateeachdoctor">
                             @csrf
                             <h3>Update Doctor Details!</h3>
                             <hr>
+                            <div class="col-md-6">
+                            <input type="hidden" class="form-control" name="id" value="{{ $updoctor->id }}">
+
+                           
+                        </div>
                             <div class="form-group row">
                                 <label for="doc_firstname" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="doc_firstname" type="text" class="form-control" name="doc_firstname" value="{{ old('doc_firstname') }}">
+                                    <input id="doc_firstname" type="text" class="form-control" name="newfirstname" value="{{ $updoctor->firstname }}">
 
                                     
                                 </div>
@@ -155,7 +160,7 @@
                                 <label for="doc_lastname" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="doc_lastname" type="text" class="form-control" name="doc_lastname" value="{{ old('doc_lastname') }}">
+                                    <input id="doc_lastname" type="text" class="form-control" name="newlastname" value="{{ $updoctor->lastname }}">
 
                                 
                                 </div>
@@ -165,10 +170,13 @@
                                 <label for="job_title" class="col-md-4 col-form-label text-md-right">{{ __('Speciality') }}</label>
     
                                 <div class="col-md-6">
-                                    <select id="speciality" class="form-control" name="speciality" value="{{ old('speciality') }}">
-                                        <option value="-1">Select one</option>
-                                        <option value="dentist">Dentist</option>
-                                        <option value="heart">Heart Surgon</option>
+                                    <select id="speciality" class="form-control" name="newspeciality" value="">
+                                    <option value="psycologist" @if ( $updoctor->speciality == "psycologist") {{ 'selected' }} @endif>Psycologist</option>
+                                    <option value="physiologist" @if ( $updoctor->speciality == "physiologist") {{ 'selected' }} @endif>Physiologist</option>  
+                                    <option value="Dentist" @if ( $updoctor->speciality == "Dentist") {{ 'selected' }} @endif>Dentist</option>
+                                    <option value="Heart Surgon" @if ( $updoctor->speciality == "Heart Surgon") {{ 'selected' }} @endif>Heart Surgon</option>  
+                                    <!-- <option value="dentist">Dentist</option>
+                                        <option value="heart">Heart Surgon</option> -->
                                     </select>
     
                                     
@@ -179,7 +187,7 @@
                                 <label for="work_hosptl" class="col-md-4 col-form-label text-md-right">{{ __('Working Hospital') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="work_hosptl" type="text" class="form-control" name="work_hosptl" value="{{ old('work_hosptl') }}">
+                                    <input id="work_hosptl" type="text" class="form-control" name="newhospital" value="{{ $updoctor->working_hospital }}">
 
                                     
                                 </div>
@@ -189,7 +197,7 @@
                                 <label for="doc_email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="doc_email" type="email" class="form-control" name="doc_email" value="{{ old('doc_email') }}">
+                                    <input id="doc_email" type="email" class="form-control" name="newemail" value="{{ $updoctor->email }}">
 
                                     
                                 </div>
@@ -201,7 +209,7 @@
                                 <label for="doc_phone_no" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="doc_phone_no" type="text" class="form-control" name="doc_phone_no" value="{{ old('doc_phone_no') }}">
+                                    <input id="doc_phone_no" type="text" class="form-control" name="newphone_no" value="{{ $updoctor->phone_no }}">
 
                                     
                                 </div>

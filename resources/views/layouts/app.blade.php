@@ -126,8 +126,28 @@
                         <li class="nav-item">
                         <a class="nav-link m-2 menu-item <?php if($page=='contactus'){ echo "nav-active"; }?>" href="#">Contact Us</a>
                         </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link m-2 menu-item <?php if($page=='login'){ echo "nav-active"; }?>" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li> -->
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle m-2 menu-item" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Login<span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('login') }}">
+                                        Patient Login
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('doc.login')}}">
+                                        Doctor Login
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('recep.login')}}">
+                                        Receptionist Login
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('admin.login')}}">
+                                        Admin Login
+                                    </a>
+                                </div>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">

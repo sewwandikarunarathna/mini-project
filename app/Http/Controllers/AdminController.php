@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\doctor;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -28,7 +30,9 @@ class AdminController extends Controller
     }
 
     public function doctors(){
-        return view('admin.doctorList');
+        $doctors = doctor::all();
+
+        return view('admin.doctorList')->with('doctors', $doctors);
     }
 
     public function addEmployees(){
@@ -43,12 +47,39 @@ class AdminController extends Controller
         return view('admin.addDoctor');
     }
 
-    public function updateDoctor(){
-        return view('admin.updateDoctor');
+    public function updateDoctor($id){
+        $updateDoc = doctor::find($id);
+
+        return view('admin.updateDoctor')->with('updoctor', $updateDoc);
+    }
+
+    public function updateeachdoctor(Request $request){
+        $id = $request->id;
+        $newFirstname = $request->newfirstname;
+        $newLastname = $request->newlastname;
+        $newSpecial = $request->newspeciality;
+        $newHosp = $request->newhospital;
+        $newEmail = $request->newemail;
+        $newPhone = $request->newphone_no;
+
+        $data = doctor::find($id);
+
+        $data->firstname = $newFirstname;
+        $data->lastname = $newLastname;
+        $data->speciality = $newSpecial;
+        $data->working_hospital = $newHosp;
+        $data->email = $newEmail;
+        $data->phone_no = $newPhone;
+
+        $data->save();
+        $datas = doctor::all();
+
+        return view('admin.doctorList')->with('doctors', $datas);
     }
 
     public function patientList(){
-        return view('admin.patientList');
+        $patients = User::all();
+        return view('admin.patientList')->with('patients', $patients);
     }
 
     public function addPatient(){

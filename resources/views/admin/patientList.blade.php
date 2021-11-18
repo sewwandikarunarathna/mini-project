@@ -116,26 +116,15 @@
               <th>Gender</th>
           </tr> 
           
+          @foreach($patients as $patient)
           <tr>
-              <td>asd</td>
-              <td>07834678577</td>
-              <td>15/05/1967</td>
-              <td>Female</td>
+                  <td>{{$patient->firstname . " " . $patient->lastname}}</td>
+                  <td>{{$patient->phone_no}}</td>
+                  <td>{{$patient->birthday}}</td>
+                  <td>{{$patient->gender}}</td>
           </tr>  
-          <tr>
-            <td>fgh</td>
-            <td>07834678577</td>
-            <td>15/05/1967</td>
-            <td>Female</td>
-        </tr>
-        <tr>
-            <td>yui</td>
-              <td>07834678577</td>
-              <td>15/05/1967</td>
-              <td>Female</td>
-      </tr>
-
-        </table>
+          @endforeach
+          </table>
       </div>
     </div>
   </div>

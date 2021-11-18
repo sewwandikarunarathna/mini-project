@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\doctor;
+use App\User;
 
 class ReceptionistController extends Controller
 {
@@ -27,7 +29,9 @@ class ReceptionistController extends Controller
     }
 
     public function docDetails(){
-        return view('receptionist.docDetails');
+        $doctors = doctor::all();
+        // dd($doctors);
+        return view('receptionist.docDetails')->with('doctors', $doctors);
        
     }
 
@@ -37,7 +41,8 @@ class ReceptionistController extends Controller
     }
 
     public function patientDetails(){
-        return view('receptionist.patientDetails');
+        $patients = User::all();
+        return view('receptionist.patientDetails')->with('patients', $patients);
        
     }
 

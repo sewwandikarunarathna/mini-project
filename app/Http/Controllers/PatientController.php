@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
+use App\User;
 class PatientController extends Controller
 {
     /**
@@ -37,13 +37,44 @@ class PatientController extends Controller
     }
 
     public function myProfile(){
-        return view('patient.myProfile');
+        $test= Auth::user();
+        //dd($test);
+        // $detail = User::all();
+       // dd($detail);
+        return view('patient.myProfile')->with('detail', $test);
         
     }
 
-    public function updateProfile(){
-        return view('patient.updateProfile');
+    public function updateProfile($id){
+        $updateProf = Auth::user($id);
+        return view('patient.updateProfile')->with('updateprofl', $updateProf);
         
+    }
+
+    public function updateeachprofl(Request $request){
+        $id= $request->id;
+        $newFirstname = $request->newfirstname;
+        $newLastname = $request->newlastname;
+        $newEmail = $request->newemail;
+        $newNic = $request->newnic;
+        $newPhone = $request->newphone_no;
+        $newBirthday = $request->newbirthday;
+        $newGender = $request->newgender;
+
+        $data = Auth::user($id);
+        $data->firstname = $newFirstname;
+        $data->lastname = $newLastname;
+        $data->email = $newEmail;
+        $data->nic = $newNic;
+        $data->phone_no = $newPhone;
+        $data->birthday = $newBirthday;
+        $data->gender = $newGender;
+
+        $data->save();
+        $datas = Auth::user();
+
+        return view('patient.myProfile')->with('detail', $datas);
+
     }
 
 }

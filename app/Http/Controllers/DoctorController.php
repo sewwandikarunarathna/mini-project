@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\doctor;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class DoctorController extends Controller
 {
@@ -47,7 +50,12 @@ class DoctorController extends Controller
     }
 
     public function docProfile(){
-        return view('doctor.docProfile');
+        
+       $doctr = Auth::user();
+    //    $docdata = doctor::all();
+    //    dd($user);
+    //    dd($docdata);
+        return view('doctor.docProfile')->with('docdetail', $doctr);
             
     }
 }
