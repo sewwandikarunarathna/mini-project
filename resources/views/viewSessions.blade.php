@@ -59,11 +59,11 @@
     
     <h2>Sessions</h2>
     
-    <h4><a href="/addSession" class="btn btn-info">+Create a Session</a>&nbsp;&nbsp;<a href="" class="btn btn-warning">Back</a></h4> 
+    <h4><a href="/recep/addSession/{{$doctor->id}}" class="btn btn-info">+Create a Session</a>&nbsp;&nbsp;<a href="/recep/docDetails" class="btn btn-warning">Back</a></h4> 
     
     <div class="row justify-content-center">
       <div class="col-md-8 table-responsive">
-        <h3>Doctor (name)</h3>
+        <h3>Doctor {{$doctor->firstname . " ". $doctor->lastname}}</h3>
         <table class="table table-striped">
           <tr>
               <th>Date</th>

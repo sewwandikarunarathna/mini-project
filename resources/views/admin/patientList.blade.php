@@ -76,7 +76,7 @@
   <nav class="sidebar">
     <ul class="lisst-unstyled components">
       <li class="">
-        <a href="/admin/empRegister" class="active">Employee Registration</a>
+        <a href="/admin/empRegister">Employee Registration</a>
       </li>
       <li>
         <a href="/admin/userList">Users</a>

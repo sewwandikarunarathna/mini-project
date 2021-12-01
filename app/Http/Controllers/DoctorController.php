@@ -45,7 +45,10 @@ class DoctorController extends Controller
     }
 
     public function makeApptDoc(){
-        return view('doctor.makeApptDoc');
+        $doctors = doctor::all();
+        $patients = User::all();
+
+        return view('doctor.makeApptDoc', compact('doctors', 'patients'));
             
     }
 

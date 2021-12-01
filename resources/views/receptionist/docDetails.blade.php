@@ -125,7 +125,7 @@
                   <td>{{$doctor->working_hospital}}</td>
                   <td>{{$doctor->email}}</td>
                   <td>{{$doctor->phone_no}}</td>
-                  <td><a href="/viewSessions" class="btn btn-info">View Sessions</a></td>
+                  <td><a href="/recep/viewSessions/{{$doctor->id}}" class="btn btn-info">View Sessions</a></td>
                   
               </tr>
             @endforeach  

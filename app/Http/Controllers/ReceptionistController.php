@@ -35,6 +35,17 @@ class ReceptionistController extends Controller
        
     }
 
+    public function viewSessions($id){
+        $doctor = doctor::find($id);
+
+        return view('viewSessions')->with('doctor', $doctor);
+    }
+
+    public function addSession($id){
+        $doctor = doctor::find($id);
+        return view('addSession')->with('doctor', $doctor);
+
+    }
     public function dailySessions(){
         return view('receptionist.dailySessions');
        
@@ -47,8 +58,21 @@ class ReceptionistController extends Controller
     }
 
     public function makeApptRecep(){
-        return view('receptionist.makeApptRecep');
+        $doctors = doctor::all();
+        $patients = User::all();
+        return view('receptionist.makeApptRecep', compact('doctors', 'patients'));
        
     }
+
+    // public function createAppt(Request $request){
+    //     $appt = new appointment;
+    //     $appt->patient_id = $request->patient_id;
+    //     $appt->doctor = $request->doctor;
+    //     $appt->date = $request->date;
+    //     $appt->session = $request->session;
+
+    //     $appt->save();
+    //     return view('receptionist.makeApptRecep');
+    // }
 
 }

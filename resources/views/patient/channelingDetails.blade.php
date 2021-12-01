@@ -98,13 +98,91 @@
     </nav>
     <br>
     
-    <h3>Choose a Date!</h3>
+    <!-- <h3>Choose a Date!</h3> -->
+  
+            <form method="POST" action="/searchSession" role="search">
+                    @csrf
+
+                    
+                    <div class="form-group row">
+                        <label for="birthday" class="col-md-4 col-form-label text-md-right">{{ __('Choose a Date') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="date" type="date" class="form-control" name="date" value="">
+
+                           
+                        </div>
+                    </div>
+        <!-- 
+                    <div class="form-group row">
+                        <label for="phone_no" class="col-md-4 col-form-label text-md-right">{{ __('Choose a Doctor') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="doctor" type="text" class="form-control" name="doctor" value="">
+
+                            
+                        </div>
+                    </div> -->
+
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                           <input type="submit" class="btn btn-primary col-md-6" value="View details">
+                        </div>
+
+                    </div> 
+                </form>
     
+                <div class="row justify-content-center">
+                <div class="col-md-10 table-responsive">
+                  @if(isset($details))
+                     
+                  <h2>Sessions for {{ $query }}</h2>
+                  <table class="table table-striped">
+                      <thead>
+                          <tr>
+                              <th>Session</th>
+                              <th>Doctor</th>
+                              <th>Patient Limit</th>
+                              <th>Status</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          @foreach($details as $datas)
+                          <tr>
+                              <td>{{$datas->session}}</td>
+                              <td>{{$datas->doctor}}</td>
+                              <td>{{$datas->patient_limit}}</td>
+                              <td>
+                                @if($datas->status)
+                                <button class="btn btn-warning">Filled</button>
+                                @else
+                                <button class="btn btn-success">Available</button>
+                                @endif
+                              </td>
+                              
+                              <td>
+                                @if($datas->status)
+                                <input type="submit" class="btn btn-primary col-md-6" value="Book" disabled>
+                                @else
+                                <input type="submit" class="btn btn-primary col-md-6" value="Book">
+                                @endif
+                              </td>
+                              
+                          </tr>
+                          @endforeach
+                      </tbody>
+                  </table>
+                  @endif
+              </div>
+             
+             </div>
+</div>
   </div>
    
  
 
-</div>
+
 
 @include('layouts.footer')
 @endsection

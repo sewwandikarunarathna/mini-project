@@ -6,7 +6,7 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
 
-                <form method="POST" action="makeAppt.blade.php">
+                <form method="POST" action="saveAppt">
                     @csrf
                     <h3>Make Appointment!</h3>
                     <hr>
@@ -14,8 +14,12 @@
                         <label for="patient_id" class="col-md-4 col-form-label text-md-right">{{ __('patient ID') }}</label>
 
                         <div class="col-md-6">
-                            <input id="patient_id" type="text" class="form-control @error('patient_id') is-invalid @enderror" name="patient_id" value="{{ old('patient_id') }}" required autocomplete="name" autofocus>
+                            <select id="patient_id" class="form-control @error('patient_id') is-invalid @enderror" name="patient_id" value="{{ old('patient_id') }}" required autocomplete="name" autofocus>
+                            @foreach($patients as $patient)
+                                <option value={{$patient->id}}>{{$patient->id}}</option>
 
+                                @endforeach
+                            </select>
                             @error('patient_id')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -29,8 +33,12 @@
 
                         <div class="col-md-6">
                             <select id="doctor" class="form-control @error('doctor') is-invalid @enderror" name="doctor" value="{{ old('doctor') }}" required autocomplete="name" autofocus>
-                                <option value="doctor 1">doctor 1</option>
-                                <option value="doctor 2">doctor 2</option>
+                                @foreach($doctors as $doctor)
+                                <option value="{{$doctor->firstname . ' ' . $doctor->lastname}}">{{$doctor->firstname . " " . $doctor->lastname}}</option>
+
+                                @endforeach
+                            <!-- <option value="doctor 1">doctor 1</option>
+                                <option value="doctor 2">doctor 2</option> -->
                             </select>
 
                             @error('doctor')
@@ -62,10 +70,10 @@
 
                       <div class="col-md-6">
                           <select id="session" class="form-control @error('session') is-invalid @enderror" name="session" value="{{ old('session') }}" required autocomplete="name" autofocus>
-                              <option value="4">4 - 5</option>
-                              <option value="5">5 - 6</option>
-                              <option value="6">6 - 7</option>
-                              <option value="7">7 - 8</option>
+                              <option value="4 - 5">4 - 5</option>
+                              <option value="5 - 6">5 - 6</option>
+                              <option value="6 - 7">6 - 7</option>
+                              <option value="7 - 8">7 - 8</option>
                           </select>
 
                           @error('session')

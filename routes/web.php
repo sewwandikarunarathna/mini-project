@@ -50,8 +50,14 @@ Route::get('/changePassword', function () {
     Route::get('/myProfile', 'PatientController@myProfile')->name('patient.myProfile');
     Route::get('/updateProfile/{id}', 'PatientController@updateProfile')->name('patient.updateProfile');
     Route::post('/updateeachprofl', 'PatientController@updateeachprofl')->name('patient.updateeachprofl');
-
+    //Route::post('/saveAppt', 'PatientController@createAppt');
 // });
+Route::post('/channelDet', 'SessionController@getCount');
+
+    Route::post('/saveAppt', 'AppointmentController@createAppt');
+    
+    Route::post('/searchSession', 'SessionController@search');
+
 
 Route::prefix('recep')->group(function(){
     Route::get('/login', 'Auth\ReceptionistLoginController@showLoginForm')->name('recep.login');
@@ -61,8 +67,9 @@ Route::prefix('recep')->group(function(){
     Route::get('/dailySessions', 'ReceptionistController@dailySessions')->name('recep.dailySessions');
     Route::get('/patientDetails', 'ReceptionistController@patientDetails')->name('recep.patientDetails');
     Route::get('/makeApptRecep', 'ReceptionistController@makeApptRecep')->name('recep.makeApptRecep');
-    Route::get('/apptDetails', 'ReceptionistController@index')->name('recep.dashboard');
-    Route::get('/apptDetails', 'ReceptionistController@index')->name('recep.dashboard');
+    Route::get('/viewSessions/{id}', 'ReceptionistController@viewSessions')->name('recep.viewSessions');
+    Route::get('/addSession/{id}', 'ReceptionistController@addSession')->name('recep.addSession');
+    Route::post('/saveAppt', 'AppointmentController@createAppt');
 
 });
 
@@ -90,6 +97,7 @@ Route::prefix('doc')->group(function(){
     Route::get('/updatePatientProfile', 'DoctorController@updatePatientProfile')->name('doc.updatePatientProfile');
     Route::get('/makeApptDoc', 'DoctorController@makeApptDoc')->name('doc.makeApptDoc');
     Route::get('/docProfile', 'DoctorController@docProfile')->name('doc.docProfile');
+    Route::post('/saveAppt', 'AppointmentController@createAppt');
 
 });
 
@@ -110,13 +118,13 @@ Route::prefix('doc')->group(function(){
 //     return view('admin.doctorList');
 // });
 
-Route::get('/viewSessions', function () {
-    return view('viewSessions');
-});
+// Route::get('/viewSessions', function () {
+//     return view('viewSessions');
+// });
 
-Route::get('/addSession', function () {
-    return view('addSession');
-});
+// Route::get('/addSession', function () {
+//     return view('addSession');
+// });
 
 // Route::get('/addDoctor', function () {
 //     return view('admin.addDoctor');

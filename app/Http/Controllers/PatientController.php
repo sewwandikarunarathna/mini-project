@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\doctor;
+use App\appointment;
 use App\User;
 class PatientController extends Controller
 {
@@ -22,10 +24,23 @@ class PatientController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(){
-    return view('patient.makeAppt');
+        $doctors = doctor::all();
+        $patients = User::all();
+    return view('patient.makeAppt', compact('doctors', 'patients'));
     
     }
 
+    // public function createAppt(Request $request){
+    //     $appt = new appointment;
+    //     $appt->patient_id = $request->patient_id;
+    //     $appt->doctor = $request->doctor;
+    //     $appt->date = $request->date;
+    //     $appt->session = $request->session;
+
+    //     $appt->save();
+    //     return redirect()->back();
+    // }
+    
     public function channelingDetails(){
         return view('patient.channelingDetails');
         

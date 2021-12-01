@@ -45,7 +45,7 @@
 @section('content')
     <div class="area">
 
-        <h4><a href="/viewSessions"><input type="button" class="btn btn-warning" value="Back"></a></h4>
+        <h4><a href="/recep/viewSessions"><input type="button" class="btn btn-warning" value="Back"></a></h4>
         <div class="row justify-content-center">
             
             <div class="col-md-7">
@@ -76,6 +76,16 @@
                                 <option value="6">6 - 7</option>
                                 <option value="7">7 - 8</option>
                             </select>
+
+                           
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="doctor" class="col-md-4 col-form-label text-md-right">{{ __('Doctor') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="doctor" type="text" disabled class="form-control" name="date" value="{{$doctor->firstname . ' '. $doctor->lastname}}">
 
                            
                         </div>
