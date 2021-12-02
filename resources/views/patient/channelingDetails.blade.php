@@ -71,9 +71,7 @@
 <div class="wrapper"> 
   <nav class="sidebar">
     <ul class="lisst-unstyled components">
-      <li class="">
-        <a href="/makeAppt">Make Appointment</a>
-      </li>
+      
       <li>
         <a href="/channelDet" class="active">Channeling Details</a>
       </li>
@@ -163,9 +161,9 @@
                               
                               <td>
                                 @if($datas->status)
-                                <input type="submit" class="btn btn-primary col-md-6" value="Book" disabled>
+                                <a href=""><input type="submit" class="btn btn-primary col-md-6" value="Book" disabled></a>
                                 @else
-                                <input type="submit" class="btn btn-primary col-md-6" value="Book">
+                                <a href="/makeAppt"><input type="submit" class="btn btn-primary col-md-6" value="Book"></a>
                                 @endif
                               </td>
                               

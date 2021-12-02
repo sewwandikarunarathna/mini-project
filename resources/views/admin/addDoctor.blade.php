@@ -137,7 +137,7 @@
             <div class="col-md-7">
 
                
-                        <form method="POST" action="">
+                        <form method="POST" action="/admin/saveDoctor">
                             @csrf
                             <h3>Add New Doctor!</h3>
                             <hr>
@@ -175,8 +175,10 @@
                                 <div class="col-md-6">
                                     <select id="speciality" class="form-control @error('speciality') is-invalid @enderror" name="speciality" value="{{ old('speciality') }}" required autocomplete="name" autofocus>
                                         <option value="-1">Select one</option>
-                                        <option value="dentist">Dentist</option>
-                                        <option value="heart">Heart Surgon</option>
+                                        <option value="Dentist">Dentist</option>
+                                        <option value="Psycologist">Psycologist</option>
+                                        <option value="Physiologist">Physiologist</option>
+                                        <option value="Heart Surgon">Heart Surgon</option>
                                     </select>
     
                                     @error('speciality')

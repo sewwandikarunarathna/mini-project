@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/makeAppt';
+    protected $redirectTo = '/channelDet';
 
     /**
      * Create a new controller instance.

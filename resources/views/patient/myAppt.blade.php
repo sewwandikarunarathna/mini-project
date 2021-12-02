@@ -74,9 +74,7 @@
 <div class="wrapper"> 
   <nav class="sidebar">
     <ul class="lisst-unstyled components">
-      <li class="">
-        <a href="/makeAppt">Make Appointment</a>
-      </li>
+      
       <li>
         <a href="/channelDet">Channeling Details</a>
       </li>
@@ -106,36 +104,22 @@
       <div class="col-md-10 table-responsive">
         <table class="table table-striped">
           <th>Date</th>
-          <th>Time</th>
+          <th>Session</th>
           <th>Doctor</th>
           <th>Status</th>
           
-        
+        @foreach($myappt as $my)
           <tr>
-              <td>today</td>
-              <td>4.00</td>
-              <td>david</td>
-              <td>canceled</td>
+              <td>{{$my->date}}</td>
+              <td>{{$my->session}}</td>
+              <td>{{$my->doctor}}</td>
+              <td>Completed</td>
           </tr>  
-          <tr>
-            <td>today</td>
-            <td>4.00</td>
-            <td>david</td>
-            <td>confirmed</td>
-        </tr>
-        <tr>
-          <td>today</td>
-          <td>4.00</td>
-          <td>david</td>
-          <td>completed</td>
-      </tr>
-
+        @endforeach
+          
         </table>
 
-        <div>
-          testinggggggggg
-          
-        </div>
+       
       </div>
     </div>
   </div>

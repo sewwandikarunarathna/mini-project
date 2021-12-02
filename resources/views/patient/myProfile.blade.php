@@ -76,9 +76,7 @@
 <div class="wrapper"> 
   <nav class="sidebar">
     <ul class="lisst-unstyled components">
-      <li class="">
-        <a href="/makeAppt">Make Appointment</a>
-      </li>
+      
       <li>
         <a href="/channelDet">Channeling Details</a>
       </li>

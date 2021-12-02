@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\doctor;
+use App\session;
 use App\appointment;
 use App\User;
 class PatientController extends Controller
@@ -25,6 +26,7 @@ class PatientController extends Controller
      */
     public function index(){
         $doctors = doctor::all();
+        $sessions = session::all();
         $patients = User::all();
     return view('patient.makeAppt', compact('doctors', 'patients'));
     
@@ -47,7 +49,10 @@ class PatientController extends Controller
     }
 
     public function myAppt(){
-        return view('patient.myAppt');
+        $userid= Auth::user()->id;
+        $myappt = appointment::where('patient_id','=',$userid)->get();
+// dd($myappt);
+        return view('patient.myAppt')->with('myappt', $myappt);
         
     }
 

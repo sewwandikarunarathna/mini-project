@@ -30,7 +30,7 @@ class LoginController extends Controller
     //     return view('patient.makeAppt');
     // }
 
-    protected $redirectTo = '/makeAppt';
+    protected $redirectTo = '/channelDet';
     // protected redirect()->intended(route('patient.dashboard'));
 
     /**

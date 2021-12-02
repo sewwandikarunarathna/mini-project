@@ -40,8 +40,7 @@
                             <!-- <option value="doctor 1">doctor 1</option>
                                 <option value="doctor 2">doctor 2</option> -->
                             </select>
-
-                            @error('doctor')
+                           @error('doctor')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -53,7 +52,7 @@
                       <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
 
                       <div class="col-md-6">
-                          <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" required autocomplete="name" autofocus>
+                          <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="" required autocomplete="name" autofocus>
 
                           @error('date')
                               <span class="invalid-feedback" role="alert">
@@ -75,7 +74,6 @@
                               <option value="6 - 7">6 - 7</option>
                               <option value="7 - 8">7 - 8</option>
                           </select>
-
                           @error('session')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>

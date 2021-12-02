@@ -16,6 +16,6 @@ class AppointmentController extends Controller
 
         $appt->save();
         return redirect()->back();
-
+        // return view('patient.channelingDetails');
     }
 }

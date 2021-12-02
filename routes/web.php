@@ -81,12 +81,14 @@ Route::prefix('admin')->group(function(){
     Route::get('/addEmp', 'AdminController@addEmployees')->name('admin.addEmp');
     Route::get('/updateEmp', 'AdminController@updateEmployees')->name('admin.updateEmp');
     Route::get('/addDoctor', 'AdminController@addDoctor')->name('admin.addDoctor');
+    Route::post('/saveDoctor', 'AdminController@saveDoctor');
     Route::get('/updateDoctor/{id}', 'AdminController@updateDoctor')->name('admin.updateDoctor');
     Route::post('/updateeachdoctor', 'AdminController@updateeachdoctor')->name('admin.updateeachdoctor');
     Route::get('/patientList', 'AdminController@patientList')->name('admin.patientList');
     Route::get('/addPatient', 'AdminController@addPatient')->name('admin.addPatient');
    
 });
+
 
 Route::prefix('doc')->group(function(){
     Route::get('/login', 'Auth\DoctorLoginController@showLoginForm')->name('doc.login');
