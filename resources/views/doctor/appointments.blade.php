@@ -86,9 +86,9 @@
       <li>
         <a href="/doc/appointments" class="active">Appointments</a>
       </li>
-      <li>
+      <!-- <li>
         <a href="/doc/makeApptDoc">Make Appointment</a>
-      </li>
+      </li> -->
       <li>
         <a href="/doc/docProfile">My Profile</a>
       </li> 
@@ -117,28 +117,16 @@
               <th>Action</th>
               
           </tr> 
-          
+          @foreach($myappt as $my)
           <tr>
-              <td><a href="/doc/patientProfl" class="link" data-toggle="tooltip" data-placement="bottom" title="Click here to view profile">sdhfgkn</a></td>
-              <td>23/12/2020</td>
-              <td>7-8</td>
+              <td><a href="/doc/patientProfl/{{$my->patient_id}}" class="link" data-toggle="tooltip" data-placement="bottom" title="Click here to view profile">saman kanishka</a></td>
+              <td>{{$my->date}}</td>
+              <td>{{$my->session}}</td>
               <td><a href="" class="btn btn-warning">Cancel</a></td>
               
-          </tr>  
-          <tr>
-            <td><a href="/patientProfl" class="link" data-toggle="tooltip" data-placement="bottom" title="Click here to view profile">sdhfgkn</a></td>
-              <td>23/12/2020</td>
-              <td>7-8</td>
-              <td><a href="" class="btn btn-warning">Cancel</a></td>
-        </tr>
-        <tr>
-          <td><a href="/patientProfl" class="link" data-toggle="tooltip" data-placement="bottom" title="Click here to view profile">sdhfgkn</a></td>
-          <td>23/12/2020</td>
-          <td>7-8</td>
-          <td><a href="" class="btn btn-warning">Cancel</a></td>
-      </tr>
-
-        </table>
+          </tr> 
+          @endforeach 
+          </table>
       </div>
     </div>
   </div>

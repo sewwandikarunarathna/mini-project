@@ -44,7 +44,7 @@
             
             <div class="col-md-7">
             
-                <form method="POST" action="">
+                <form method="POST" action="/recep/updatePassword">
                     @csrf
 
                     <h3>Change Your Password!</h3>

@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\doctor;
 use App\User;
+use App\session;
+use App\appointment;
 
 class ReceptionistController extends Controller
 {
@@ -24,7 +27,12 @@ class ReceptionistController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(){
-    return view('receptionist.apptDetails');
+
+        $data = appointment::join('users', 'users.id', '=', 'patient_id')
+              		->get(['users.firstname', 'users.lastname', 'doctor', 'date', 'session']);
+
+                    //   dd($data);
+    return view('receptionist.apptDetails')->with('data', $data);
    
     }
 
@@ -37,8 +45,11 @@ class ReceptionistController extends Controller
 
     public function viewSessions($id){
         $doctor = doctor::find($id);
+        $docSession = session::where('doctor','=',$doctor->firstname . ' ' . $doctor->lastname)->get();
+        // dd($docSession);
 
-        return view('viewSessions')->with('doctor', $doctor);
+        return view('receptionist.viewSessions', compact('doctor', 'docSession'));
+        // return view('receptionist.viewSessions')->with('doctor', $doctor);
     }
 
     public function addSession($id){
@@ -47,7 +58,11 @@ class ReceptionistController extends Controller
 
     }
     public function dailySessions(){
-        return view('receptionist.dailySessions');
+        $today = date('Y-m-d');
+        $todaySessions = session::where('date','=',$today)->get();
+       
+        // dd($todaySessions);
+        return view('receptionist.dailySessions', compact('today', 'todaySessions'));
        
     }
 
@@ -57,11 +72,38 @@ class ReceptionistController extends Controller
        
     }
 
+    public function addPatient(){
+        return view('receptionist.addPatient');
+    }
     public function makeApptRecep(){
         $doctors = doctor::all();
         $patients = User::all();
         return view('receptionist.makeApptRecep', compact('doctors', 'patients'));
        
+    }
+    public function channelingDetails(){
+        
+        return view('receptionist.channelingDetails');
+        
+    }
+
+    public function changePassword(){
+        return view('receptionist.changePassword');
+        // $currentUser =  auth()->receptionist();
+        // dd($currentUser);
+    }
+
+    public function updatePassword(Request $request){
+        $request->validate([
+            'current_password' => ['required', 'string', 'max:255'],
+            'new_password' => ['required', 'string', 'max:255'],
+            'confirm_password' => ['required', 'same:new_password'],
+        ]);
+
+        $currentUser = auth()->receptionist();
+        dd($currentUser);
+        return view('receptionist.updatePassword');
+
     }
 
     // public function createAppt(Request $request){

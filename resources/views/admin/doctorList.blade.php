@@ -78,9 +78,9 @@
       <li class="">
         <a href="/admin/empRegister">Employee Registration</a>
       </li>
-      <li>
+      <!-- <li>
         <a href="/admin/userList">Users</a>
-      </li>
+      </li> -->
       <li>
         <a href="/admin/doctorList" class="active">Doctors</a>
       </li>
@@ -125,7 +125,7 @@
               <td>{{$doctor->working_hospital}}</td>
               <td>{{$doctor->email}}</td>
               <td>{{$doctor->phone_no}}</td>
-              <td><a href="/viewSessions" class="btn btn-info">View Sessions</a>&nbsp;&nbsp;
+              <td><a href="/admin/viewSession/{{$doctor->id}}" class="btn btn-info">View Sessions</a>&nbsp;&nbsp;
               <a href="/admin/updateDoctor/{{$doctor->id}}"  class="btn btn-success">Update</a></td>
               
           </tr> 

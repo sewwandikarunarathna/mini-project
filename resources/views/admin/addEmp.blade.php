@@ -104,9 +104,9 @@
         <li class="">
           <a href="/admin/empRegister" class="active">Employee Registration</a>
         </li>
-        <li>
+        <!-- <li>
           <a href="/admin/userList">Users</a>
-        </li>
+        </li> -->
         <li>
           <a href="/admin/doctorList">Doctors</a>
         </li>
@@ -137,7 +137,7 @@
             <div class="col-md-7">
 
                
-                        <form method="POST" action="">
+                        <form method="POST" action="/admin/saveEmp">
                             @csrf
                             <h3>Add New Employee!</h3>
                             <hr>
@@ -211,26 +211,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="job_title" class="col-md-4 col-form-label text-md-right">{{ __('Job Title') }}</label>
-    
-                                <div class="col-md-6">
-                                    <select id="job_title" class="form-control @error('job_title') is-invalid @enderror" name="job_title" value="{{ old('job_title') }}" required autocomplete="name" autofocus>
-                                        <option value="-1">Select one</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="receptionist">Receptionist</option>
-                                    </select>
-    
-                                    @error('job_title')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
                             
-
                             <div class="form-group row">
                                 <label for="emp_password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 

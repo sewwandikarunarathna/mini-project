@@ -81,9 +81,9 @@
           <li>
             <a href="/doc/appointments">Appointments</a>
           </li>
-          <li>
+          <!-- <li>
             <a href="/doc/makeApptDoc" class="active">Make Appointment</a>
-          </li>
+          </li> -->
           <li>
             <a href="/doc/docProfile">My Profile</a>
           </li> 

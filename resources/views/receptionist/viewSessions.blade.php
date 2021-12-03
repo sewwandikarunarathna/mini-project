@@ -59,7 +59,7 @@
     
     <h2>Sessions</h2>
     
-    <h4><a href="/recep/addSession/{{$doctor->id}}" class="btn btn-info">+Create a Session</a>&nbsp;&nbsp;<a href="/recep/docDetails" class="btn btn-warning">Back</a></h4> 
+    <h4><a href="/recep/docDetails" class="btn btn-warning">Back</a></h4> 
     
     <div class="row justify-content-center">
       <div class="col-md-8 table-responsive">
@@ -71,27 +71,15 @@
               <th>Patient Limit</th>
               <th>Action</th> 
           </tr> 
-          
+          @foreach($docSession as $s)
           <tr>
-              <td>23/12/2020</td>
-              <td>6-7</td>
-              <td>6</td>
+          <td>{{$s->date}}</td>
+              <td>{{$s->session}}</td>
+              <td>{{$s->patient_limit}}</td>
               <td><a href="" class="btn btn-danger">Cancel</a></td>   
-          </tr>  
-          <tr>
-            <td>23/12/2020</td>
-            <td>6-7</td>
-            <td>6</td>
-            <td><a href="" class="btn btn-danger">Cancel</a></td>  
-        </tr>
-        <tr>
-            <td>23/12/2020</td>
-              <td>6-7</td>
-              <td>6</td>
-              <td><a href="" class="btn btn-danger">Cancel</a></td>  
-      </tr>
-
-        </table>
+          </tr>
+          @endforeach  
+         </table>
       </div>
     </div>
   </div>

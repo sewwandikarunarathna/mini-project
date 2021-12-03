@@ -78,9 +78,9 @@
       <li class="">
         <a href="/admin/empRegister">Employee Registration</a>
       </li>
-      <li>
+      <!-- <li>
         <a href="/admin/userList">Users</a>
-      </li>
+      </li> -->
       <li>
         <a href="/admin/doctorList">Doctors</a>
       </li>

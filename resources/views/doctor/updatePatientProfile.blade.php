@@ -44,17 +44,21 @@
             
             <div class="col-md-8">
             
-                <form method="POST" action="">
+                <form method="POST" action="/doc/updateMedicalDetails">
                     @csrf
 
                     <h3>Update Medical Details!</h3>
                    <hr>
+                   <div class="col-md-6">
+                            <input type="hidden" class="form-control" name="id" value="{{ $user->id }}">
 
+                           
+                            </div>
                     <div class="form-group row">
                         <label for="medicalDetails" class="col-md-4 col-form-label text-md-right">{{ __('Medical Details') }}</label>
 
                         <div class="col-md-7">
-                            <input id="medicalDetails" type="text" class="form-control" name="medicalDetails" value="{{ old('medicalDetails') }}">
+                            <input id="medicalDetails" type="text" class="form-control" name="medicalDetails" value="{{$user->medical_details}}">
 
                            
                         </div>

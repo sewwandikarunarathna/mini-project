@@ -104,9 +104,9 @@
         <li class="">
           <a href="/admin/empRegister">Employee Registration</a>
         </li>
-        <li>
+        <!-- <li>
           <a href="/userList">Users</a>
-        </li>
+        </li> -->
         <li>
           <a href="/admin/doctorList" class="active">Doctors</a>
         </li>

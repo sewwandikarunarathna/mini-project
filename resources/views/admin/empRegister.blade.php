@@ -78,9 +78,9 @@
       <li class="">
         <a href="/admin/empRegister" class="active">Employee Registration</a>
       </li>
-      <li>
+      <!-- <li>
         <a href="/admin/userList">Users</a>
-      </li>
+      </li> -->
       <li>
         <a href="/admin/doctorList">Doctors</a>
       </li>
@@ -114,38 +114,18 @@
               <th>E-mail</th>
               <th>NIC</th>
               <th>Contact Number</th>
-              <th>Job Title</th>
               <th>Action</th>
-              <th>Is User?</th>
           </tr> 
-          
+          @foreach($emps as $emp)
           <tr>
-              <td>nime</td>
-              <td>nim@gmail.com</td>
-              <td>200046874349</td>
-              <td>078345743</td>
-              <td>receptionist</td>
-              <td><a href="/admin/updateEmp" class="btn btn-success">Update</a>&nbsp;&nbsp;<a href=""  class="btn btn-warning">Delete</a></td>
-              <td><a href="" class="btn btn-primary">Yes</a></td>
+              <td>{{$emp->firstname . " " . $emp->lastname}}</td>
+              <td>{{$emp->email}}</td>
+              <td>{{$emp->nic}}</td>
+              <td>{{$emp->phone_no}}</td>
+              <td><a href="/admin/updateEmp/{{$emp->id}}" class="btn btn-success">Update</a>&nbsp;&nbsp;<a href=""  class="btn btn-warning">Delete</a></td>
           </tr>  
-          <tr>
-              <td>nime</td>
-              <td>nimsachniwefhgdkavnf@gmail.com</td>
-              <td>200046874349</td>
-              <td>078345743</td>
-              <td>receptionist</td>
-              <td><a href="/updateEmp" class="btn btn-success">Update</a>&nbsp;&nbsp;<a href=""  class="btn btn-warning">Delete</a></td>
-              <td><a href="" class="btn btn-danger">No</a></td>
-        </tr>
-        <tr>
-            <td>nime</td>
-            <td>nim@gmail.com</td>
-            <td>200046874349</td>
-            <td>078345743</td>
-            <td>receptionist</td>
-            <td><a href="/updateEmp" class="btn btn-success">Update</a>&nbsp;&nbsp;<a href=""  class="btn btn-warning">Delete</a></td>
-      </tr>
-
+          @endforeach
+          
         </table>
       </div>
     </div>

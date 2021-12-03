@@ -91,6 +91,9 @@
         <a href="/recep/makeApptRecep" class="active">Make Appointment</a>
       </li>
       <li>
+      <a href="/recep/channelDet">Channeling Details</a>
+      </li>
+      <li>
         <a href="/recep/changePassword">Change Password</a>
       </li>
     </ul>

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\doctor;
 use App\User;
+use App\receptionist;
+use App\session;
 
 class AdminController extends Controller
 {
@@ -26,7 +28,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-    return view('admin.empRegister');
+        $emps = receptionist::all();
+
+    return view('admin.empRegister')->with('emps', $emps);
     // return view('home');
     }
 
@@ -40,8 +44,41 @@ class AdminController extends Controller
         return view('admin.addEmp');
     }
 
-    public function updateEmployees(){
-        return view('admin.updateEmp');
+    public function saveEmployee(Request $request){
+        $emp = new receptionist;
+
+        $emp->firstname = $request->emp_firstname;
+        $emp->lastname = $request->emp_lastname;
+        $emp->email = $request->emp_email;
+        $emp->nic = $request->emp_nic;
+        $emp->phone_no = $request->emp_phone_no;
+        $emp->password = Hash::make($request['password']);
+
+        $emp->save();
+        return redirect()->back();
+
+    }
+
+    public function updateEmployees($id){
+        $updateEmp = receptionist::find($id);
+
+        return view('admin.updateEmp')->with('upemp', $updateEmp);
+    }
+
+    public function updateeachemployee(Request $request){
+        $id = $request->id;
+        $data = receptionist::find($id);
+
+        $data->firstname = $request->emp_firstname;
+        $data->lastname = $request->emp_lastname;
+        $data->email = $request->emp_email;
+        $data->nic = $request->emp_nic;
+        $data->phone_no = $request->emp_phone_no;
+
+        $data->save();
+        $datas = receptionist::all();
+        return view('admin.empRegister')->with('emps', $datas);
+
     }
 
     public function addDoctor(){
@@ -99,5 +136,14 @@ class AdminController extends Controller
 
     public function addPatient(){
         return view('admin.addPatient');
+    }
+
+    public function viewSession($id){
+        $doctor = doctor::find($id);
+        $docSession = session::where('doctor','=',$doctor->firstname . ' ' . $doctor->lastname)->get();
+        // dd($docSession);
+
+        return view('admin.viewSession', compact('doctor', 'docSession'));
+
     }
 }

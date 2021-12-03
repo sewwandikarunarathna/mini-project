@@ -63,7 +63,7 @@
 @section('content')
 <div class="section">
 
-    <h4><a href="/admin/patientList" class="btn btn-warning back">Back to Patients</a></h4>
+    <h4><a href="/recep/patientDetails" class="btn btn-warning back">Back to Patients</a></h4>
 
     <div class="row justify-content-center">
         <div class="col-md-7">

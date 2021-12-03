@@ -88,10 +88,11 @@
         <a href="/recep/patientDetails" class="active">Patient Details</a>
       </li>
       <li>
-        <a href="/recep/makeApptRecep">Make Appointment</a>
+      <a href="/recep/channelDet">Channeling Details</a>
+
       </li>
       <li>
-        <a href="/recep/changePasswordRecep">Change Password</a>
+        <a href="/recep/changePassword">Change Password</a>
       </li>
     </ul>
 
@@ -108,7 +109,7 @@
     </nav>
     <br>
     
-    <h3><a href="/addPatient" class="btn btn-info">+Add New</a></h3>
+    <h3><a href="/recep/addPatient" class="btn btn-info">+Add New</a></h3>
     <div class="row justify-content-center">
         <div class="col-md-10 table-responsive">
             <table class="table table-striped">

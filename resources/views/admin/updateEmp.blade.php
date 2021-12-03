@@ -104,9 +104,9 @@
         <li class="">
           <a href="/admin/empRegister" class="active">Employee Registration</a>
         </li>
-        <li>
+        <!-- <li>
           <a href="/admin/userList">Users</a>
-        </li>
+        </li> -->
         <li>
           <a href="/admin/doctorList">Doctors</a>
         </li>
@@ -137,15 +137,20 @@
             <div class="col-md-7">
 
                
-                        <form method="POST" action="">
+                        <form method="POST" action="/admin/updateeachemp">
                             @csrf
                             <h3>Update Employee Details!</h3>
                             <hr>
+                            <div class="col-md-6">
+                            <input type="hidden" class="form-control" name="id" value="{{ $upemp->id }}">
+
+                           
+                            </div>
                             <div class="form-group row">
                                 <label for="emp_firstname" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="emp_firstname" type="text" class="form-control" name="emp_firstname" value="{{ old('emp_firstname') }}">
+                                    <input id="emp_firstname" type="text" class="form-control" name="emp_firstname" value="{{$upemp->firstname}}">
 
                                    
                                 </div>
@@ -155,7 +160,7 @@
                                 <label for="emp_lastname" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="emp_lastname" type="text" class="form-control" name="emp_lastname" value="{{ old('emp_lastname') }}">
+                                    <input id="emp_lastname" type="text" class="form-control" name="emp_lastname" value="{{$upemp->lastname}}">
 
                                     
                                 </div>
@@ -165,7 +170,7 @@
                                 <label for="emp_email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="emp_email" type="email" class="form-control" name="emp_email" value="{{ old('emp_email') }}">
+                                    <input id="emp_email" type="email" class="form-control" name="emp_email" value="{{$upemp->email}}">
 
                                     
                                 </div>
@@ -175,7 +180,7 @@
                                 <label for="emp_nic" class="col-md-4 col-form-label text-md-right">{{ __('NIC Number') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="emp_nic" type="text" class="form-control" name="emp_nic" value="{{ old('emp_nic') }}">
+                                    <input id="emp_nic" type="text" class="form-control" name="emp_nic" value="{{$upemp->nic}}">
 
                                     
                                 </div>
@@ -185,23 +190,9 @@
                                 <label for="emp_phone_no" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="emp_phone_no" type="text" class="form-control" name="emp_phone_no" value="{{ old('emp_phone_no') }}">
+                                    <input id="emp_phone_no" type="text" class="form-control" name="emp_phone_no" value="{{$upemp->phone_no}}">
 
                                    
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="job_title" class="col-md-4 col-form-label text-md-right">{{ __('Job Title') }}</label>
-    
-                                <div class="col-md-6">
-                                    <select id="job_title" class="form-control" name="job_title" value="{{ old('job_title') }}">
-                                        <option value="-1" selected>Select one</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="receptionist">Receptionist</option>
-                                    </select>
-    
-                                 
                                 </div>
                             </div>
 

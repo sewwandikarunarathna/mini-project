@@ -85,10 +85,10 @@
         <a href="/recep/patientDetails">Patient Details</a>
       </li>
       <li>
-        <a href="/recep/makeApptRecep">Make Appointment</a>
+        <a href="/recep/channelDet">Channeling Details</a>
       </li>
       <li>
-        <a href="/recep/changePasswordRecep">Change Password</a>
+        <a href="/recep/changePassword">Change Password</a>
       </li>
     </ul>
 

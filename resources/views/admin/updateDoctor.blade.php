@@ -104,9 +104,9 @@
         <li class="">
           <a href="/admin/empRegister">Employee Registration</a>
         </li>
-        <li>
+        <!-- <li>
           <a href="/admin/userList">Users</a>
-        </li>
+        </li> -->
         <li>
           <a href="/admin/doctorList" class="active">Doctors</a>
         </li>
@@ -145,7 +145,7 @@
                             <input type="hidden" class="form-control" name="id" value="{{ $updoctor->id }}">
 
                            
-                        </div>
+                            </div>
                             <div class="form-group row">
                                 <label for="doc_firstname" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
 

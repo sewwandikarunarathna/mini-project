@@ -35,6 +35,34 @@ class SessionController extends Controller
     else return view ('patient.channelingDetails')->withMessage('No Details found. Try to search again !');
     }
 
+
+    public function searchRecep(){
+        $q = Request::get ( 'date' );
+        $data = session::where('date','LIKE','%'.$q.'%')->get();
+
+        $datas = [];
+        foreach($data as $a){
+            // echo($a->doctor);
+            // echo("<br>");
+            $count = appointment::where('session','=',$a->session)->where('doctor','=',$a->doctor)->count();
+            if($count < $a->patient_limit){
+                $a->status = 0;
+            } else $a->status = 1;
+
+            $a->save();
+            // return view('patient.channelingDetails')->with('a', $a);
+            array_push($datas, $a);
+            // echo($count) . "<br>";
+        }
+        
+        // dd($datas);
+        if(count($datas) > 0)
+        return view('receptionist.channelingDetails')->withDetails($datas)->withQuery ( $q );
+    else return view ('receptionist.channelingDetails')->withMessage('No Details found. Try to search again !');
+    }
+   
+   
+   
     public function getCount(){
         $apt = appointment::all();
         $test = appointment::all()->count();

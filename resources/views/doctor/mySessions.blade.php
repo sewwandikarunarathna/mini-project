@@ -78,9 +78,9 @@
       <li>
         <a href="/doc/appointments">Appointments</a>
       </li>
-      <li>
+      <!-- <li>
         <a href="/doc/makeApptDoc">Make Appointment</a>
-      </li>
+      </li> -->
       <li>
         <a href="/doc/docProfile">My Profile</a>
       </li> 
@@ -108,27 +108,15 @@
               <th>Patient Limit</th>
               <th>Action</th> 
           </tr> 
-          
+          @foreach($mysessions as $my)
           <tr>
-              <td>23/12/2020</td>
-              <td>6-7</td>
-              <td>6</td>
+              <td>{{$my->date}}</td>
+              <td>{{$my->session}}</td>
+              <td>{{$my->patient_limit}}</td>
               <td><a href="" class="btn btn-danger">Cancel</a></td>   
-          </tr>  
-          <tr>
-            <td>23/12/2020</td>
-            <td>6-7</td>
-            <td>6</td>
-            <td><a href="" class="btn btn-danger">Cancel</a></td>  
-        </tr>
-        <tr>
-            <td>23/12/2020</td>
-              <td>6-7</td>
-              <td>6</td>
-              <td><a href="" class="btn btn-danger">Cancel</a></td>  
-      </tr>
-
-        </table>
+          </tr>
+          @endforeach  
+          </table>
       </div>
     </div>
   </div>

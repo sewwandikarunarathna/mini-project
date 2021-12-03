@@ -88,10 +88,10 @@
         <a href="/recep/patientDetails">Patient Details</a>
       </li>
       <li>
-        <a href="/recep/makeApptRecep">Make Appointment</a>
+        <a href="/recep/channelDet">Channeling Details</a>
       </li>
       <li>
-        <a href="/recep/changePasswordRecep">Change Password</a>
+        <a href="/recep/changePassword">Change Password</a>
       </li>
     </ul>
 
@@ -108,7 +108,7 @@
     </nav>
     <br>
     
-    <h3>Sessions: (currentDate)</h3>
+    <h3>Sessions: {{$today}}</h3>
     <div class="row justify-content-center">
         <div class="col-md-10 table-responsive">
             <table class="table table-striped">
@@ -117,29 +117,20 @@
               <th>Patient Limit</th>
               <th>Status</th>
               
-            
+            @foreach($todaySessions as $t)
               <tr>
-                  <td>4-5</td>
-                  <td><li>doctor B</li>
-                    <li>doctor C</li></td>
-                  <td><li>6</li><li>7</li></td>
-                  <td><li>N/A</li><li>Available</li></td>
+                  <td>{{$t->session}}</td>
+                  <td>{{$t->doctor}}</td>
+                  <td>{{$t->patient_limit}}</td>
+                  <td>
+                    @if($t->status)
+                    <button class="btn btn-warning">Filled</button>
+                    @else
+                    <button class="btn btn-success">Available</button>
+                    @endif
+                  </td>
               </tr>  
-              <tr>
-                <td>4-5</td>
-                  <td><li>doctor A</li>
-                    <li>doctor C</li></td>
-                  <td><li>5</li><li>7</li></td>
-                  <td><li>available</li><li>N/A</li></td>
-            </tr>
-            <tr>
-              <td>4-5</td>
-              <td><li>doctor B</li>
-                <li>doctor C</li></td>
-              <td><li>6</li><li>7</li></td>
-              <td><li>N/A</li><li>N/A</li></td>
-            </tr>
-    
+            @endforeach
             </table>
           </div>
     </div>

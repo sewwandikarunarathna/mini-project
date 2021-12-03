@@ -35,47 +35,47 @@
             <tr class="d-flex">
              <td class="text-left col-5">First Name</td> 
              <td class="col-1">:</td>
-             <td class="col-6">Amali</td>
+             <td class="col-6">{{$user->firstname}}</td>
             </tr>
             <tr class="d-flex">
               <td class="text-left col-5">Last Name</td>
               <td class="col-1">:</td> 
-              <td class="col-6">rangika</td>
+              <td class="col-6">{{$user->lastname}}</td>
             </tr>
             <tr class="d-flex">
             <td class="text-left col-5">NIC</td>  
             <td class="col-1">:</td>
-            <td class="col-6">1996034596</td> 
+            <td class="col-6">{{$user->nic}}</td> 
             </tr>
             <tr class="d-flex">
              <td class="text-left col-5">Email</td> 
              <td class="col-1">:</td>
-             <td class="col-6">amali12@gmail.com</td>
+             <td class="col-6">{{$user->email}}</td>
             </tr>
             <tr class="d-flex">
               <td class="text-left col-5">Contact Number</td>
               <td class="col-1">:</td>
-              <td class="col-6">07024356</td>  
+              <td class="col-6">{{$user->phone_no}}</td>  
             </tr>
             <tr class="d-flex">
              <td class="text-left col-5">Date of Birth</td>
              <td class="col-1">:</td> 
-             <td class="col-6">1996 12 08</td> 
+             <td class="col-6">{{$user->birthday}}</td> 
             </tr>
             <tr class="d-flex">
              <td class="text-left col-5">Gender</td>
              <td class="col-1">:</td>
-             <td class="col-6">Female</td> 
+             <td class="col-6">{{$user->gender}}</td> 
             </tr>
             <tr class="d-flex">
               <td class="text-left col-5">Blood Type</td>
               <td class="col-1">:</td>
-              <td class="col-6">o+</td> 
+              <td class="col-6">{{$user->blood_type}}</td> 
              </tr>
              <tr class="d-flex">
               <td class="text-left col-5">Medical details</td>
               <td class="col-1">:</td>
-              <td class="col-6">headeache</td> 
+              <td class="col-6">{{$user->medical_details}}</td> 
              </tr>
           </table>
         </div>
@@ -83,7 +83,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-md-3">
-        <a href="/doc/updatePatientProfile" class="btn btn-success">Update Medical Details</a>
+        <a href="/doc/updatePatientProfile/{{$user->id}}" class="btn btn-success">Update Medical Details</a>
         <a href="/doc/appointments" class="btn btn-warning">Back</a>
       </div>
     </div> 

@@ -84,10 +84,11 @@
         <a href="/recep/patientDetails">Patient Details</a>
       </li>
       <li>
-        <a href="/recep/makeApptRecep">Make Appointment</a>
+      <a href="/recep/channelDet">Channeling Details</a>
+
       </li>
       <li>
-        <a href="/recep/changePasswordRecep">Change Password</a>
+        <a href="/recep/changePassword">Change Password</a>
       </li>
     </ul>
 
@@ -113,33 +114,18 @@
               <th>Doctor</th>
               <th>Date</th>
               <th>Session</th>
-              <th>Action</th>
+              <!-- <th>Action</th> -->
               
           </tr> 
-          
+          @foreach($data as $d)
           <tr>
-              <td>abcdefg</td>
-              <td>sarath</td>
-              <td>23/12/2020</td>
-              <td>7-8</td>
-              <td><a href="" class="btn btn-warning">Cancel</a></td>
-              
-          </tr>  
-          <tr>
-            <td>abcdefg</td>
-            <td>sarath</td>
-            <td>23/12/2020</td>
-            <td>5-6</td>
-            <td><a href="" class="btn btn-warning">Cancel</a></td>
-        </tr>
-        <tr>
-            <td>abcdefg</td>
-              <td>sarath</td>
-              <td>23/12/2020</td>
-              <td>6-7</td>
-              <td><a href="" class="btn btn-warning">Cancel</a></td>
-      </tr>
-
+              <td>{{$d->firstname . " " . $d->lastname}}</td>
+              <td>{{$d->doctor}}</td>
+              <td>{{$d->date}}</td>
+              <td>{{$d->session}}</td>
+              <!-- <td><a href="" class="btn btn-warning">Cancel</a></td> -->
+          </tr>
+          @endforeach    
         </table>
       </div>
     </div>

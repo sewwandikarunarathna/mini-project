@@ -18,6 +18,7 @@ class CreateReceptionistsTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email')->unique();
+            $table->string('nic');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone_no');
             $table->string('password');
