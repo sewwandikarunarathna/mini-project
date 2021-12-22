@@ -48,6 +48,9 @@ class PatientController extends Controller
         
     }
 
+    public function changePassword(){
+        return view('patient.changePassword');
+    }
     public function myAppt(){
         $userid= Auth::user()->id;
         $myappt = appointment::where('patient_id','=',$userid)->get();
@@ -80,6 +83,7 @@ class PatientController extends Controller
         $newPhone = $request->newphone_no;
         $newBirthday = $request->newbirthday;
         $newGender = $request->newgender;
+        $newBlood = $request->newblood;
 
         $data = Auth::user($id);
         $data->firstname = $newFirstname;
@@ -89,6 +93,7 @@ class PatientController extends Controller
         $data->phone_no = $newPhone;
         $data->birthday = $newBirthday;
         $data->gender = $newGender;
+        $data->blood_type = $newBlood;
 
         $data->save();
         $datas = Auth::user();

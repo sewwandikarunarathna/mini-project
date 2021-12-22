@@ -125,6 +125,16 @@
                         </div>
                     </div>
 
+                    <div class="form-group row">
+                        <label for="blood" class="col-md-4 col-form-label text-md-right">{{ __('Blood Type') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="blood" type="text" class="form-control" name="newblood" value="{{ $updateprofl->blood_type }}">
+
+                            
+                        </div>
+                    </div>
+
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
                            <a href="/updateeachprofl"></a><input type="submit" class="btn btn-primary col-md-6" value="Update">

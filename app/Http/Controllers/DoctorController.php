@@ -35,16 +35,24 @@ class DoctorController extends Controller
     
     }
 
+    public function changePassword(){
+        
+       
+        return view('doctor.changePassword');
+    
+    }
+
     public function appointments(){
         $user= Auth::user();
         // dd($userid);
         $data = appointment::join('users', 'users.id', '=', 'patient_id')
-        ->get(['users.firstname', 'users.lastname', 'doctor', 'date', 'session']);
+        ->where('doctor','=',$user->firstname . " " . $user->lastname)
+        ->get(['users.id', 'users.firstname', 'users.lastname', 'doctor', 'date', 'session']);
 
         $myappt = appointment::where('doctor','=',$user->firstname . " " . $user->lastname)->get();
 //         $myappts= $myappt->patient_id;
-// dd($myappts);
-        return view('doctor.appointments')->with('myappt', $myappt);
+// dd($data);
+        return view('doctor.appointments')->with('myappt', $data);
         
     }
 

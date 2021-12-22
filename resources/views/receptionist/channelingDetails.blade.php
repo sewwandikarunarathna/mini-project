@@ -108,7 +108,7 @@
     
     <!-- <h3>Choose a Date!</h3> -->
   
-            <form method="POST" action="/searchSessionRecep" role="search">
+            <form method="POST" action="/recep/searchSessionRecep" role="search">
                     @csrf
 
                     

@@ -18,6 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/doctors', 'HomeController@doctors')->name('doctors');
+Route::get('/aboutus', 'HomeController@aboutus')->name('aboutus');
+Route::get('/contactus', 'HomeController@contactus')->name('contactus');
 
 // Route::get('/makeAppt', function () {
 //     return view('patient.makeAppt');
@@ -50,6 +53,8 @@ Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/myProfile', 'PatientController@myProfile')->name('patient.myProfile');
     Route::get('/updateProfile/{id}', 'PatientController@updateProfile')->name('patient.updateProfile');
     Route::post('/updateeachprofl', 'PatientController@updateeachprofl')->name('patient.updateeachprofl');
+    Route::get('/changePassword', 'PatientController@changePassword')->name('patient.changePassword');
+
     //Route::post('/saveAppt', 'PatientController@createAppt');
 // });
 Route::post('/channelDet', 'SessionController@getCount');
@@ -57,7 +62,6 @@ Route::post('/channelDet', 'SessionController@getCount');
     Route::post('/saveAppt', 'AppointmentController@createAppt');
     
     Route::post('/searchSession', 'SessionController@search');
-    Route::post('/searchSessionRecep', 'SessionController@searchRecep');
 
 
 Route::prefix('recep')->group(function(){
@@ -75,6 +79,7 @@ Route::prefix('recep')->group(function(){
     Route::get('/changePassword', 'ReceptionistController@changePassword')->name('recep.changePassword');
     Route::get('/updatePassword', 'ReceptionistController@updatePassword')->name('recep.changePassword');
     Route::get('/addPatient', 'ReceptionistController@addPatient')->name('recep.addPatient');
+    Route::post('/searchSessionRecep', 'SessionController@searchRecep');
 
 });
 
@@ -109,90 +114,7 @@ Route::prefix('doc')->group(function(){
     Route::get('/makeApptDoc', 'DoctorController@makeApptDoc')->name('doc.makeApptDoc');
     Route::get('/docProfile', 'DoctorController@docProfile')->name('doc.docProfile');
     Route::post('/saveAppt', 'AppointmentController@createAppt');
+    Route::get('/changePassword', 'DoctorController@changePassword')->name('doc.changePassword');
+
 
 });
-
-
-// Route::get('/empRegister', function () {
-//     return view('admin.empRegister');
-// });
-
-// Route::get('/addEmp', function () {
-//     return view('admin.addEmp');
-// });
-
-// Route::get('/updateEmp', function () {
-//     return view('admin.updateEmp');
-// });
-
-// Route::get('/doctorList', function () { //doctors in interface
-//     return view('admin.doctorList');
-// });
-
-// Route::get('/viewSessions', function () {
-//     return view('viewSessions');
-// });
-
-// Route::get('/addSession', function () {
-//     return view('addSession');
-// });
-
-// Route::get('/addDoctor', function () {
-//     return view('admin.addDoctor');
-// });
-
-// Route::get('/updateDoctor', function () {
-//     return view('admin.updateDoctor');
-// });
-
-// Route::get('/patientList', function () {
-//     return view('admin.patientList');
-// });
-
-// Route::get('/addPatient', function () {
-//     return view('admin.addPatient');
-// });
-
-// Route::get('/apptDetails', function () {
-//     return view('receptionist.apptDetails');
-// });
-
-// Route::get('/docDetails', function () {
-//     return view('receptionist.docDetails');
-// });
-
-// Route::get('/dailySessions', function () {
-//     return view('receptionist.dailySessions');
-// });
-
-// Route::get('/patientDetails', function () {
-//     return view('receptionist.patientDetails');
-// });
-
-// Route::get('/makeApptRecep', function () {
-//     return view('receptionist.makeApptRecep');
-// });
-
-// Route::get('/mySessions', function () {
-//     return view('doctor.mySessions');
-// });
-
-// Route::get('/appointments', function () {
-//     return view('doctor.appointments');
-// });
-
-// Route::get('/patientProfl', function () {
-//     return view('doctor.patientProfl');
-// });
-
-// Route::get('/updatePatientProfile', function () {
-//     return view('doctor.updatePatientProfile');
-// });
-
-// Route::get('/makeApptDoc', function () {
-//     return view('doctor.makeApptDoc');
-// });
-
-// Route::get('/docProfile', function () {
-//     return view('doctor.docProfile');
-// });

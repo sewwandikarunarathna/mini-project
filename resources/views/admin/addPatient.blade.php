@@ -70,7 +70,7 @@
 
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-                        <h2>Signup</h2>
+                        <h2>Add Patient</h2>
                         <hr>
                         <div class="form-group row">
                             <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
@@ -135,37 +135,6 @@
                                 <input id="phone_no" type="text" class="form-control @error('phone_no') is-invalid @enderror" name="phone_no" value="{{ old('phone_no') }}" required autocomplete="name" autofocus>
 
                                 @error('phone_no')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="birthday" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required autocomplete="name" autofocus>
-
-                                @error('birthday')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
-
-                            <div class="col-md-6">
-                                <select id="gender" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autocomplete="name" autofocus>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                </select>
-
-                                @error('gender')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

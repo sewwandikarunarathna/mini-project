@@ -1,8 +1,8 @@
 @extends('layouts.app')
 <?php
     
-    $title = 'appointments';
-   $page = "";
+    $title = 'doctors';
+   $page = "doctors";
  ?>
 
 
@@ -42,9 +42,9 @@
     background: #ccedd2;
     text-decoration: none;
   }
-
+  
+  
   .area{
-     
     width: 100%;
     padding: 20px;
     min-height: 100vh;
@@ -52,7 +52,6 @@
   }
 
   
-
 
   @media (max-width: 768px) {
     .sidebar{
@@ -66,68 +65,41 @@
     }
   }
 
- .link{
-  color: black;
-  text-decoration: underline;
- }
- .link:hover{
-   color:  #94d3ac;
-   
- }
+ 
 </style>
-
 @section('content')
-<div class="wrapper">
-  <nav class="sidebar">
-    <ul class="lisst-unstyled components">
-      <li class="">
-        <a href="/doc/mySessions">My Sessions</a>
-      </li>
-      <li>
-        <a href="/doc/appointments" class="active">Appointments</a>
-      </li>
-      <!-- <li>
-        <a href="/doc/makeApptDoc">Make Appointment</a>
-      </li> -->
-      <li>
-        <a href="/doc/docProfile">My Profile</a>
-      </li> 
-    </ul>
 
-  </nav>
+<div class="wrapper"> 
+  
   
   <div class="area">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <button type="button" id="sidebarCollapse" class="btn btn-info">
-          <i class="fas fa-align-left"></i>
-          <span>Toggle Menu</span>
-        </button>
-      </div>
-    </nav>
-    <br>
+    
+    
     
     <div class="row justify-content-center">
-      <div class="col-md-10 table-responsive">
-        <table class="table table-striped">
-          <tr>
-              <th>Patient</th>
-              <th>Date</th>
-              <th>Session</th>
-              <th>Action</th>
+        <div class="col-md-10 table-responsive">
+            <table class="table table-striped">
+              <tr>
+                  <th>Name</th>
+                  <th>Speciality</th>
+                  <th>Working Hospital</th>
+                  <th>E-mail</th>
+                  <th>Contact Number</th>
+                  
+              </tr> 
+            @foreach($doctors as $doctor)  
+              <tr>
+                  <td>{{$doctor->firstname . " " . $doctor->lastname}}</td>
+                  <td>{{$doctor->speciality}}</td>
+                  <td>{{$doctor->working_hospital}}</td>
+                  <td>{{$doctor->email}}</td>
+                  <td>{{$doctor->phone_no}}</td>
+                  
+              </tr>
+            @endforeach  
               
-          </tr> 
-          @foreach($myappt as $my)
-          <tr>
-              <td><a href="/doc/patientProfl/{{$my->id}}" class="link" data-toggle="tooltip" data-placement="bottom" title="Click here to view profile">{{$my->firstname . " " . $my->lastname}}</a></td>
-              <td>{{$my->date}}</td>
-              <td>{{$my->session}}</td>
-              <td><a href="" class="btn btn-warning">Cancel</a></td>
-              
-          </tr> 
-          @endforeach 
-          </table>
-      </div>
+            </table>
+          </div>
     </div>
   </div>
    

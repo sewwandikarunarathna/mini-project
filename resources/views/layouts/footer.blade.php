@@ -28,7 +28,7 @@
 </style>
 
     <div class="footer">
-                <a href="" class="">About Us</a> | <a href="" class="">Contact Us</a>
+                <a href="/aboutus" class="">About Us</a> | <a href="/contactus" class="">Contact Us</a>
                 <p class="display-5">Copyright@Outpatient. All rights reserved</p>
             
     </div>

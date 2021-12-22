@@ -118,13 +118,13 @@
                         <a class="nav-link m-2 menu-item <?php if($page=='home'){ echo "nav-active"; }?>" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link m-2 menu-item <?php if($page=='doctors'){ echo "nav-active"; }?>" href="#">Doctors</a>
+                        <a class="nav-link m-2 menu-item <?php if($page=='doctors'){ echo "nav-active"; }?>" href="/doctors">Doctors</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link m-2 menu-item <?php if($page=='aboutus'){ echo "nav-active"; }?>" href="#">About Us</a>
+                        <a class="nav-link m-2 menu-item <?php if($page=='aboutus'){ echo "nav-active"; }?>" href="aboutus">About Us</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link m-2 menu-item <?php if($page=='contactus'){ echo "nav-active"; }?>" href="#">Contact Us</a>
+                        <a class="nav-link m-2 menu-item <?php if($page=='contactus'){ echo "nav-active"; }?>" href="contactus">Contact Us</a>
                         </li>
                             <!-- <li class="nav-item">
                                 <a class="nav-link m-2 menu-item <?php if($page=='login'){ echo "nav-active"; }?>" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -157,9 +157,9 @@
                     </ul>
                         @else
                         <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                         <a class="nav-link m-2 menu-item <?php if($page=='doctors'){ echo "nav-active"; }?>" href="#">Doctors</a>
-                        </li>
+                        </li> -->
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle m-2 menu-item" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

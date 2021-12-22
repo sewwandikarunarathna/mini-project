@@ -146,7 +146,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-md-3">
-        <a href="/changePassword" class="btn btn-warning">Change Password</a>
+        <a href="/doc/changePassword" class="btn btn-warning">Change Password</a>
         
       </div>
     </div> 
